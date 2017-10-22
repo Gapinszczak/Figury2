@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8" />
+
+
+        <script>
+            function oblicz() {
+                var a = parseInt(document.getElementById("a").value);
+                var b = parseInt(document.getElementById("b").value);
+                var h = parseInt(document.getElementById("h").value);
+                var co = parseInt(document.getElementById("co").value);
+                var figura = document.getElementById("figura").value;
+                var result = document.getElementById("result");
+                var wynik = null;
+                if (figura == 1) {
+                    wynik = trojkat(a, b, h, co);
+                    result.innerHTML = "Wynik  " + wynik;
+                }
+                if (figura == 2) {
+                    wynik = prostokat(a, b, co);
+                    result.innerHTML = "Wynik  " + wynik;
+                }
+                if (figura == 3) {
+                    wynik = rownoleglobok(a, b, h, co);
+                    result.innerHTML = "Wynik  " + wynik;
+                }
+          
+            }
+
+            function trojkat(a, b, h, co) 
+	    {
+                if (co == 1) 
+		{
+                    return (a * h) / 2;
+                } else 
+		{
+                    return a + b + h;
+                }
+                  }
+
+            function prostokat(a, b, co)
+	     {
+                if (co == 1) 
+		{
+                    return (a * b);
+                } else 
+		{
+                    return (2 * a) + (2 * b);
+                }
+            }
+
+            function rownoleglobok(a, b, h, co) 
+	    {
+                if (co == 1)
+		 {
+                    return (a * h);
+                } else 
+		{
+                    return (2*a) + (2*b);
+                }
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <div id="result"></div>
+
+        A: <input type="number" id="a" /><br />
+        B: <input type="number" id="b" /><br />
+        H/C: <input type="number" id="h" /><br />
+        <select name="co" id="co">
+            <option value="1">Pole</option>
+            <option value="2">Obwód</option>
+        </select>
+        <select name="figura" id="figura">
+            <option value="1">Trojkąt</option>
+            <option value="2">Prostokąt</option>
+            <option value="3">Równoległobok</option>
+        </select>
+
+
+        <button onclick="oblicz()">Oblicz</button>
+    </body>
+</html>
